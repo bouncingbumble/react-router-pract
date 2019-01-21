@@ -6,9 +6,14 @@ import './App.css';
 
 const Homepage = () => (<div>Homepage</div>)
 const About = () => (<div>About</div>)
+//match - how the path matches the current url
+//location - where you are now
+//history - go back/forth and change the url
+const Name = ({match}) => (<div>Hello, {match.params.name}</div>)
 const SwitchDemo = () => (
   <Switch>
-    <Route path="/about" component={About} />
+    <Route exact path="/about" component={About} />
+    <Route path="/:name" component={Name} />
     <Route path="/" component={Homepage} />
   </Switch>
 )
